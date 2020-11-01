@@ -4,7 +4,7 @@ import cx from 'classnames';
 import './custom.css';
 import Style from './App.modules.scss';
 
-const App = () => {
+const App = (): JSX.Element => {
     return (
         <div className={cx(Style.header, 'color')}>
             Hi
