@@ -1,15 +1,10 @@
 import React from 'react';
 import cx from 'classnames';
 
-import './custom.css';
-import Style from './App.modules.scss';
+import Style from './App.module.scss';
 
-const App = (): JSX.Element => {
-    return (
-        <div className={cx(Style.header, 'color')}>
-            Hi
-        </div>
-    )
-}
+const App = () => {
+  return <div className={cx(Style.header, 'color')}>Hi</div>;
+};
 
 export default App;
