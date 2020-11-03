@@ -56,7 +56,7 @@
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css}": [
       "pretty-quick --staged",
-      "eslint ./src"
+      "eslint --ext js,jsx,ts,tsx ./src"
     ]
   }
 }
