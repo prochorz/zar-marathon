@@ -1,15 +1,22 @@
 import React from 'react';
 import cx from 'classnames';
 
-import './custom.css';
-import Style from './App.modules.scss';
+import Header from './components/header';
+import Footer from './components/footer';
 
-const App = (): JSX.Element => {
-    return (
-        <div className={cx(Style.header, 'color')}>
-            Hi
-        </div>
-    )
-}
+import Style from './App.module.scss';
+
+const App = () => {
+  return (
+    <div className={cx(Style.wrapper)}>
+      <div className={cx(Style.content)}>
+        <Header />
+      </div>
+      <div className={cx(Style.footer)}>
+        <Footer />
+      </div>
+    </div>
+  );
+};
 
 export default App;
