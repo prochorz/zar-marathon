@@ -13,8 +13,9 @@ module.exports = {
   },
   plugins: ['prettier', 'prettier', 'react', '@typescript-eslint'],
   rules: {
+    'react/prop-types': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
-    'no-console': 'error',
+    'no-console': ['error', { allow: ['warn', 'error'] }],
     'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx', '.ts', '.js'] }],
     'import/extensions': [
       'error',
@@ -26,6 +27,8 @@ module.exports = {
         jsx: 'never',
       },
     ],
+    'no-shadow': 'off',
+    'import/prefer-default-export': 'off',
   },
   settings: {
     'import/resolver': {

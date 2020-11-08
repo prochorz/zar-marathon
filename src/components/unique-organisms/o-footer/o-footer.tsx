@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
-import Style from './footer.module.scss';
+import Style from './o-footer.module.scss';
 
 const Footer = () => {
   return (
@@ -11,10 +11,11 @@ const Footer = () => {
           <p>
             Make with
             <span aria-label="love" role="img">
-              ❤️
+              {' '}
+              ❤️{' '}
             </span>
           </p>
-          <a href="#">Ours Team️</a>
+          <a href="/">Ours Team️</a>
         </div>
       </div>
     </div>

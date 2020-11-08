@@ -1,3 +1,5 @@
+@import '../../../assets/styles/variables';
+
 .header {
   padding-top: 6px;
   padding-bottom: 24px;
@@ -11,7 +13,6 @@
 }
 
 .header--logo {
-  background: #fff;
   width: 156px;
   height: 62px;
   display: block;
@@ -27,11 +28,11 @@
     }
   }
   a {
-    color: black;
+    color: $dark;
     text-decoration: none;
     padding: 16px 0;
     &:hover {
-      border-bottom: 3px solid #000;
+      border-bottom: 3px solid $dark;
     }
   }
 }
