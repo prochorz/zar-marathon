@@ -1,10 +1,9 @@
 import React from 'react';
 import cx from 'classnames';
 
-import s from './p-pokedex.module.scss';
+import s from './p-empty.module.scss';
 
 import { TMain } from '../../templates/t-main';
-import { OPokedexList } from '../../unique-organisms/o-pokedex-list';
 
 export interface Props {
   render?: () => JSX.Element[] | JSX.Element;
@@ -12,18 +11,16 @@ export interface Props {
   onClick?: (event: React.MouseEvent) => void;
 }
 
-const PPokedex: React.FC<Props> = (props) => {
+const PEmpty: React.FC<Props> = (props) => {
   const { className } = props;
 
-  const ctxClass = cx(s['p-pokedex'], className);
+  const ctxClass = cx(s['p-empty'], className);
 
   return (
     <TMain>
-      <div className={ctxClass}>
-        <OPokedexList />
-      </div>
+      <div className={ctxClass}>Is Empty Page</div>
     </TMain>
   );
 };
 
-export default PPokedex;
+export default PEmpty;

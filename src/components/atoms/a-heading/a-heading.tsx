@@ -5,6 +5,7 @@ import s from './a-heading.module.scss';
 
 export interface Props {
   className?: string;
+  size?: string;
 }
 
 const AHeading: React.FC<Props> = (props) => {
