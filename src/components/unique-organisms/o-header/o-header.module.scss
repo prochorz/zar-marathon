@@ -31,7 +31,8 @@
     color: $dark;
     text-decoration: none;
     padding: 16px 0;
-    &:hover {
+    &:hover,
+    &.--active {
       border-bottom: 3px solid $dark;
     }
   }

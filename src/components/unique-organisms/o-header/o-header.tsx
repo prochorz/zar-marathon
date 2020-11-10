@@ -1,40 +1,38 @@
 import React from 'react';
 import cx from 'classnames';
+import { A, usePath } from 'hookrouter';
 
 import s from './o-header.module.scss';
 
-import { ReactComponent as SVGLogo } from './assets/logo.svg';
+import { ASvgIcon } from '../../atoms/a-svg-icon';
 
-interface IMenu {
-  key: string;
-  title: string;
-  url: string;
-}
-
-const MENU: IMenu[] = [
-  { key: 'menu-1', title: 'Home', url: '/' },
-  { key: 'menu-2', title: 'Pokédex', url: '/pokedex' },
-  { key: 'menu-3', title: 'Legendaries', url: '/home' },
-  { key: 'menu-4', title: 'Documentation', url: '/home' },
-];
+import { GENERAL_MENU } from '../../../hooks/useRouter';
 
 const Logo = () => {
   return (
     <div>
-      <a href="/" className={cx(s['header--logo'])}>
-        <SVGLogo />
-      </a>
+      <A href="/" className={cx(s['header--logo'])}>
+        <ASvgIcon path="logo" />
+      </A>
     </div>
   );
 };
 
 const Menu = () => {
+  const path = usePath();
+
   return (
     <ul className={s['header--menu']}>
-      {MENU.map((item) => {
+      {GENERAL_MENU.map((item) => {
         return (
-          <li key={item.key}>
-            <a href={item.url}>{item.title}</a>
+          <li key={item.name}>
+            <A
+              href={item.url}
+              className={cx({
+                [s['--active']]: path === item.url,
+              })}>
+              {item.title}
+            </A>
           </li>
         );
       })}
