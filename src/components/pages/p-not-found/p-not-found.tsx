@@ -7,7 +7,7 @@ import s from './p-not-found.module.scss';
 import { TMain } from '../../templates/t-main';
 import { AButton } from '../../atoms/a-button';
 
-import { getUrl } from '../../../hooks/useRouter';
+import { LinkEnum } from '../../../hooks/useRouter';
 
 export interface Props {
   render?: () => JSX.Element[] | JSX.Element;
@@ -24,7 +24,7 @@ const PNotFound: React.FC<Props> = (props) => {
     <TMain>
       <div className={ctxClass}>
         404
-        <AButton onClick={() => navigate(getUrl('home'))}>Go home</AButton>
+        <AButton onClick={() => navigate(LinkEnum.HOME)}>Go home</AButton>
       </div>
     </TMain>
   );
