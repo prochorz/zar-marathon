@@ -14,7 +14,6 @@ export interface Props {
 
 const PPokedex: React.FC<Props> = (props) => {
   const { className } = props;
-
   const ctxClass = cx(s['p-pokedex'], className);
 
   return (

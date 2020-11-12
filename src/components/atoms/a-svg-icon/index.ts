@@ -1,3 +1,3 @@
-import ASvgIcon, { Props } from './a-svg-icon';
+import ASvgIcon from './a-svg-icon';
 
-export { ASvgIcon, Props };
+export { ASvgIcon };
