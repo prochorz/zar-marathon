@@ -7,6 +7,8 @@ import { MPokemonCard } from '../../molecules/m-pokemon-card';
 
 import useGetData from '../../../hooks/useGetData';
 
+import { IPokemons, PokemonRequest } from '../../../interface/pokemons';
+
 export interface Props {
   render?: () => JSX.Element[] | JSX.Element;
   className?: string;
@@ -18,11 +20,7 @@ const OPokedexList: React.FC<Props> = (props) => {
   const { className, search } = props;
   const ctxClass = cx(s['o-pokedex-list'], className);
 
-  const {
-    data: { total, pokemons = [] },
-    isError,
-    isLoading,
-  } = useGetData('getPokemons', { name: search }, [search]);
+  const { data, isError, isLoading } = useGetData<IPokemons>('getPokemons', { name: search }, [search]);
 
   if (isError) {
     return <div>Shits happened..</div>;
@@ -32,10 +30,11 @@ const OPokedexList: React.FC<Props> = (props) => {
     <div>Loading...</div>
   ) : (
     <div className={ctxClass}>
-      {pokemons.map((item: any) => {
-        return <MPokemonCard key={item.id} data={item} />;
-      })}
-      {total}
+      {data &&
+        data.pokemons.map((item: PokemonRequest) => {
+          return <MPokemonCard key={item.id} data={item} />;
+        })}
+      {data && data.total}
     </div>
   );
 };

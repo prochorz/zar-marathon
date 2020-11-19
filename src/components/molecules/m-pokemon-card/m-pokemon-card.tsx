@@ -5,30 +5,13 @@ import s from './m-pokemon-card.module.scss';
 
 import { AHeading } from '../../atoms/a-heading';
 
-interface IPokemonItemCard {
-  name_clean: string;
-  abilities: string[];
-  stats: {
-    attack: number;
-    defense: number;
-    [key: string]: number;
-  };
-  types: string[];
-  img: string;
-  name: string;
-  base_experience: number;
-  height: number;
-  id: number;
-  is_default: boolean;
-  order: number;
-  weight: number;
-}
+import { PokemonRequest } from '../../../interface/pokemons';
 
 export interface Props {
   render?: () => JSX.Element[] | JSX.Element;
   className?: string;
   onClick?: (event: React.MouseEvent) => void;
-  data: IPokemonItemCard;
+  data: PokemonRequest;
 }
 
 const MPokemonCard: React.FC<Props> = (props) => {
