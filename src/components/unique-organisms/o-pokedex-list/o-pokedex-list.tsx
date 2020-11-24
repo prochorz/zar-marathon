@@ -6,6 +6,7 @@ import s from './o-pokedex-list.module.scss';
 import { MPokemonCard } from '../../molecules/m-pokemon-card';
 
 import useGetData from '../../../hooks/useGetData';
+import useDebounce from '../../../hooks/useDebounce';
 
 import { IPokemons, PokemonRequest } from '../../../interface/pokemons';
 
@@ -17,10 +18,11 @@ export interface Props {
 }
 
 const OPokedexList: React.FC<Props> = (props) => {
-  const { className, search } = props;
+  const { className, search = '' } = props;
   const ctxClass = cx(s['o-pokedex-list'], className);
 
-  const { data, isError, isLoading } = useGetData<IPokemons>('getPokemons', { name: search }, [search]);
+  const debounceSearch = useDebounce(search, 500);
+  const { data, isError, isLoading } = useGetData<IPokemons>('getPokemons', { name: debounceSearch }, [search]);
 
   if (isError) {
     return <div>Shits happened..</div>;
