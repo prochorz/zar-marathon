@@ -1,8 +1,9 @@
+/* eslint-disable */
 import fs from 'fs';
 import path from 'path';
+import React from 'react';
 import handlebars from 'handlebars';
 import Hapi from '@hapi/hapi';
-import React from 'react';
 import ReactDom from 'react-dom/server';
 import { setPath } from 'hookrouter';
 import App from '../App';
@@ -26,7 +27,7 @@ const init = async () => {
   server.route({
     method: 'GET',
     path: '/{any*}',
-    handler: (request, h) => {
+    handler: (request) => {
       setPath(request.path);
       const pathIndexHTML = path.join(process.cwd(), 'dist', 'index.html');
       const template = handlebars.compile(fs.readFileSync(pathIndexHTML, 'utf8'));
